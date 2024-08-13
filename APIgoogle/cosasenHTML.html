@@ -1,0 +1,41 @@
+<head>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <div id="g_id_onload"
+     data-client_id="TU_CLIENT_ID"
+     data-login_uri="http://tusitio.com/handle_login.php"
+     data-auto_prompt="false">
+</div>
+<div id="g_id_signin"></div>
+</body>
+
+en el java:
+<script>
+    function handleCredentialResponse(response) {
+      const id_token = response.credential;
+      // Envía el ID token a tu servidor
+      fetch('handle_login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id_token=${id_token}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Maneja la respuesta del servidor
+        console.log(data);
+      });
+    }
+  
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: 'TU_CLIENT_ID',
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('g_id_signin'),
+        { theme: 'outline', size: 'large' }
+      );
+    }
+  </script>  
