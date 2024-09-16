@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\CarreraRepository;
-use App\Mappers\CarreraMapper;
-use App\Models\Carrera;
+use App\Repositories\horarios\CarreraRepository;
+use App\Mappers\horarios\CarreraMapper;
+use App\Models\horarios\Carrera;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -16,6 +16,8 @@ class CarreraService implements CarreraRepository
     {
         $this->carreraMapper = $carreraMapper;
     }
+
+    /*
 
     public function obtenerTodasCarreras()
     {
@@ -80,11 +82,12 @@ class CarreraService implements CarreraRepository
         }
     }
 
+    */
 
      //---------------------------------------------------------------------------------------------------------
     // Swagger
 
-    public function obtenerTodosCarreraSwagger(){
+    public function obtenerTodosCarrera(){
         try{
             $carerras = Carrera::all();
             return $carerras;
@@ -93,7 +96,7 @@ class CarreraService implements CarreraRepository
             return response()->json(['error' => 'Hubo un error al obtener las carreras'], 500);
         }
     }
-    public function obtenerCarreraPorIdSwagger($id){
+    public function obtenerCarreraPorId($id){
         try{
             $carrera = Carrera::find($id);
             if ($carrera) {
@@ -105,7 +108,7 @@ class CarreraService implements CarreraRepository
             return response()->json(['error' => 'Hubo un error al obtener la carrera'], 500);
         }
     }
-    public function guardarCarreraSwagger($Request){
+    public function guardarCarrera($Request){
         try{
             $carrera = new Carrera();
             $carrera->nombre=$Request->input('nombre');
@@ -116,7 +119,7 @@ class CarreraService implements CarreraRepository
             return response()->json(['error' => 'Hubo un error al guardar la carrera'], 500);
         }
     }
-    public function actualizarCarreraSwagger($Request, $id){
+    public function actualizarCarrera($Request, $id){
         try{
             $carrera = Carrera::find($id);
             if (!$carrera) {
@@ -130,7 +133,7 @@ class CarreraService implements CarreraRepository
             return response()->json(['error' => 'Hubo un error al actualizar la carrera'], 500);
         }
     }
-    public function eliminarCarreraPorIdSwagger($id){
+    public function eliminarCarreraPorId($id){
         try{
             $carrera = Carrera::find($id);
             if ($carrera) {

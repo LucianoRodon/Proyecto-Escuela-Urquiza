@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\DocenteRepository;
-use App\Mappers\DocenteMapper;
-use App\Models\Docente;
+use App\Repositories\horarios\DocenteRepository;
+use App\Mappers\horarios\DocenteMapper;
+use App\Models\horarios\Docente;
 use Exception;
 use Illuminate\Support\Facades\Log;
 

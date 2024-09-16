@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\HorarioPrevioDocenteRepository;
-use App\Models\HorarioPrevioDocente;
+use App\Repositories\horarios\HorarioPrevioDocenteRepository;
+use App\Models\horarios\HorarioPrevioDocente;
 use Exception;
 
 class HorarioPrevioDocenteService implements HorarioPrevioDocenteRepository

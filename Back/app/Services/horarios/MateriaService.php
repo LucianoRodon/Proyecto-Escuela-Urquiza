@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\MateriaRepository;
-use App\Mappers\MateriaMapper;
-use App\Models\Materia;
+use App\Repositories\horarios\MateriaRepository;
+use App\Mappers\horarios\MateriaMapper;
+use App\Models\horarios\Materia;
 use Exception;
 use Illuminate\Support\Facades\Log;
 

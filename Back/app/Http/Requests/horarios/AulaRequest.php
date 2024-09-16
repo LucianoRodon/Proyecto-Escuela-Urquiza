@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\horarios;
 
 use App\Models\Aula;
 use Illuminate\Foundation\Http\FormRequest;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\CambioDocenteRepository;
-use App\Mappers\CambioDocenteMapper;
-use App\Models\CambioDocente;
+use App\Repositories\horarios\CambioDocenteRepository;
+use App\Mappers\horarios\CambioDocenteMapper;
+use App\Models\horarios\CambioDocente;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -17,6 +17,7 @@ class CambioDocenteService implements CambioDocenteRepository
         $this->cambioDocenteMapper = $cambioDocenteMapper;
     }
 
+    /*
     public function obtenerTodosCambiosDocente()
     {
       
@@ -86,12 +87,13 @@ class CambioDocenteService implements CambioDocenteRepository
 
         }
     }
+        */
 
      //---------------------------------------------------------------------------------------------------------
     // Swagger
 
 
-    public function obtenerTodosCambiosDocenteSwagger(){
+    public function obtenerTodosCambiosDocente(){
         try{
             $cambiosDocente = CambioDocente::all();
             return response()->json($cambiosDocente, 200);
@@ -100,7 +102,7 @@ class CambioDocenteService implements CambioDocenteRepository
             return response()->json(['error' => 'Hubo un error al obtener todos los cambios de docente'], 500);
         }
     }
-    public function obtenerCambioDocentePorIdSwagger($id){
+    public function obtenerCambioDocentePorId($id){
         try{
             $cambioDocente = CambioDocente::find($id);
             if ($cambioDocente) {
@@ -112,7 +114,7 @@ class CambioDocenteService implements CambioDocenteRepository
             return response()->json(['error' => 'Hubo un error al obtener el cambio de docente'], 500);
         }
     }
-    public function guardarCambioDocenteSwagger($Request){
+    public function guardarCambioDocente($Request){
         try {
             $cambioDocente = $this->cambioDocenteMapper->toCambioDocente($Request);
             $cambioDocente->save();
@@ -122,7 +124,7 @@ class CambioDocenteService implements CambioDocenteRepository
             return response()->json(['error' => 'Hubo un error al guardar el cambio de docente'], 500);
         }
     }
-    public function actualizarCambioDocenteSwagger($Request, $id){
+    public function actualizarCambioDocente($Request, $id){
         $cambioDocente = CambioDocente::find($id);
         if (!$cambioDocente) {
             return response()->json(['error' => 'No existe el cambio de docente'], 404);
@@ -135,7 +137,7 @@ class CambioDocenteService implements CambioDocenteRepository
             return response()->json(['error' => 'Hubo un error al actualizar el cambio de docente'], 500);
         }
     }
-    public function eliminarCambioDocentePorIdSwagger($id){
+    public function eliminarCambioDocentePorId($id){
         try {
             $cambioDocente = CambioDocente::find($id);
             if ($cambioDocente) {

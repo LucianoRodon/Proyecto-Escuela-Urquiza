@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\HorarioPrevioDocenteRequest;
 use App\Models\Docente;
 use App\Models\DocenteMateria;
 use App\Models\HorarioPrevioDocente;
 use App\Services\HorarioPrevioDocenteService;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 

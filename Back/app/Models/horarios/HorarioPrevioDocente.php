@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\horarios;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -37,22 +37,22 @@ class HorarioPrevioDocente extends Model
 {
     use HasFactory;
 
-    protected $table = 'horarios_previos_docentes';
+    protected $table = 'horario_previo_docente';
 
-    protected $fillable = ['dni_docente', 'dia', 'hora'];
+    protected $fillable = ['id_docente', 'dia', 'hora'];
     protected $primaryKey = 'id_h_p_d';
 
 
-    public function disponibilidad():HasMany{
-        return $this->hasMany(Disponibilidad::class, 'id_h_p_d','id_h_p_d');
+    // Un horario previo docente pertenece a un docente
+    public function docente():HasMany{
+        return $this->hasMany(Docente::class, 'id_docente', 'id_docente');
     }
 
-
-    // Relación con el modelo Docente
-    public function docente()
-    {
-        return $this->belongsTo(Docente::class, 'dni_docente', 'dni');
+    // Un horario previo docente tiene una o muchas disponibilidades
+    public function disponibilidades():HasMany{
+        return $this->hasMany(Disponibilidad::class, 'id_h_p_d', 'id_h_p_d');
     }
+    
 
 
 

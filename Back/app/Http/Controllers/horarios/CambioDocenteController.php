@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Services\CambioDocenteService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CambioDocenteController extends Controller
 {
@@ -13,6 +15,8 @@ class CambioDocenteController extends Controller
     {
         $this->cambioDocenteService = $cambioDocenteService;
     }
+
+    /*
 
     public function index()
     {
@@ -68,6 +72,7 @@ class CambioDocenteController extends Controller
 
         }
     }
+        */
     
     //---------------------------------------------------------------------------------------------------------
     // Swagger
@@ -88,9 +93,9 @@ class CambioDocenteController extends Controller
      *     )
      * )
      */
-    public function obtenerTodosCambiosDocenteSwagger()
+    public function obtenerTodosCambiosDocente()
     {
-        return $this->cambioDocenteService->obtenerTodosCambiosDocenteSwagger();
+        return $this->cambioDocenteService->obtenerTodosCambiosDocente();
     }
 
     /**
@@ -118,9 +123,9 @@ class CambioDocenteController extends Controller
      *     )
      * )
      */
-    public function obtenerCambioDocentePorIdSwagger($id)
+    public function obtenerCambioDocentePorId($id)
     {
-        return $this->cambioDocenteService->obtenerCambioDocentePorIdSwagger($id);
+        return $this->cambioDocenteService->obtenerCambioDocentePorId($id);
     }
 
     /**
@@ -142,9 +147,9 @@ class CambioDocenteController extends Controller
      *     )
      * )
      */
-    public function guardarCambioDocenteSwagger(Request $request)
+    public function guardarCambioDocente(Request $request)
     {
-        return $this->cambioDocenteService->guardarCambioDocenteSwagger($request);
+        return $this->cambioDocenteService->guardarCambioDocente($request);
     }
 
     /**
@@ -175,9 +180,9 @@ class CambioDocenteController extends Controller
      *     )
      * )
      */
-    public function actualizarCambioDocenteSwagger(Request $request, $id)
+    public function actualizarCambioDocente(Request $request, $id)
     {
-        return $this->cambioDocenteService->actualizarCambioDocenteSwagger($request, $id);
+        return $this->cambioDocenteService->actualizarCambioDocente($request, $id);
     }
 
     /**
@@ -205,9 +210,11 @@ class CambioDocenteController extends Controller
      *     )
      * )
      */
-    public function eliminarCambioDocentePorIdSwagger($id)
+    public function eliminarCambioDocentePorId($id)
     {
-        return $this->cambioDocenteService->eliminarCambioDocentePorIdSwagger($id);
+        return $this->cambioDocenteService->eliminarCambioDocentePorId($id);
     }
+    
 
 }
+

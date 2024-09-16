@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Repositories\DocenteMateriaRepository;
-use App\Mappers\DocenteMateriaMapper;
-use App\Models\Disponibilidad;
-use App\Models\DocenteMateria;
+use App\Repositories\horarios\DocenteMateriaRepository;
+use App\Mappers\horarios\DocenteMateriaMapper;
+use App\Models\horarios\Disponibilidad;
+use App\Models\horarios\DocenteMateria;
 use Exception;
 
 class DocenteMateriaService implements DocenteMateriaRepository
