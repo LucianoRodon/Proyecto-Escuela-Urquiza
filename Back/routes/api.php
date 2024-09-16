@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StudentController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\horarios\AulaController;
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -30,3 +32,18 @@ Route::get('auth/google/callback', function () {
 });
 
 Route::post('/auth/google/callback', [AuthController::class, 'googleCallback']);
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------
+// Swagger
+
+// Aulas
+Route::get('/aulas', [AulaController::class, 'index']);
+Route::get('/aulas/{id}', [AulaController::class, 'show']);
+Route::post('/aulas', [AulaController::class, 'store']);
+Route::put('/aulas/actualizar/{id}', [AulaController::class, 'update']);
+Route::delete('/aulas/eliminar/{id}', [AulaController::class, 'destroy']);
+
+
+

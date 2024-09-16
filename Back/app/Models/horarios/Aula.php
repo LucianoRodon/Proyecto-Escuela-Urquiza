@@ -39,11 +39,11 @@ class Aula extends Model
     use HasFactory;
 
 
-    protected $fillable = ['nombre', 'capacidad','tipo_aula'];
+    protected $fillable = ['id_aula', 'nombre', 'capacidad','tipo_aula'];
     protected $table = 'aula';
     protected $primaryKey = 'id_aula';
 
-    public $incrementing = true;
+    public $incrementing = false;
 
     public $timestamps = false;
 
