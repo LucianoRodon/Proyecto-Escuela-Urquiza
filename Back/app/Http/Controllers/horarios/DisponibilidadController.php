@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
-use App\Models\Aula;
-use App\Models\Comision;
-use App\Models\Disponibilidad;
-use App\Models\DocenteMateria;
+use App\Models\horarios\Aula;
+use App\Models\horarios\Comision;
+use App\Models\horarios\Disponibilidad;
+use App\Models\horarios\DocenteMateria;
 use App\Models\Horario;
-use App\Models\HorarioPrevioDocente;
-use App\Models\Materia;
-use App\Services\DisponibilidadService;
+use App\Models\horarios\HorarioPrevioDocente;
+use App\Models\horarios\Materia;
+use App\Services\horarios\DisponibilidadService;
 use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Controller;
+
 
 class DisponibilidadController extends Controller
 {
@@ -25,6 +27,7 @@ class DisponibilidadController extends Controller
         $this->disponibilidadService = $disponibilidadService;
     }
 
+    /*
     public function index()
     {
         $disponibilidades = $this->disponibilidadService->obtenerTodasDisponibilidades();
@@ -199,6 +202,7 @@ class DisponibilidadController extends Controller
 
         }
     }
+        */
 
     //-------------------------------------------------------------------------------------------------------------------------
     // swagger

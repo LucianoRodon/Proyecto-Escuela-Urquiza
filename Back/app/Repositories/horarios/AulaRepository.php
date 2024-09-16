@@ -1,19 +1,16 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\horarios;
 
 interface AulaRepository
 {
-    public function obtenerTodasAulas();
-    public function obtenerAula($id);
-    public function guardarAula($nombre,$tipo_aula);
-    public function actualizarAula($nombre,$tipo_aula,$aula);
-    public function eliminarAula($aula);
-
-        // Swagger
     public function obtenerAulas();
     public function obtenerAulaPorId($id);
+    public function obtenerAulaPorNombre($nombre);
+    public function obtenerAulaMayorCapacidad();
+    public function obtenerAulaMenorCapacidad();
     public function guardarAulas($aula);
     public function actualizarAulas($aula, $id);
     public function eliminarAulas($id);
+    public function eliminarAulasPorNombre($nombre);
 }

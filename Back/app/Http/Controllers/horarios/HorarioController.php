@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\HorarioDocenteRequest;
 use App\Http\Requests\HorarioRequest;
@@ -14,6 +14,7 @@ use App\Services\HorarioService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
 
 class HorarioController extends Controller
 {

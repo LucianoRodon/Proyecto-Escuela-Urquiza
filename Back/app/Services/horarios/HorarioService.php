@@ -1,15 +1,15 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\horarios;
 
-use App\Mappers\HorarioMapper;
-
-use App\Models\Horario;
+use App\Mappers\horarios\HorarioMapper;
+use App\Repositories\horarios\HorarioRepository;
+use App\Models\horarios\Horario;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
-class HorarioService
+class HorarioService implements HorarioRepository
 {
    
     protected $horarioMapper;

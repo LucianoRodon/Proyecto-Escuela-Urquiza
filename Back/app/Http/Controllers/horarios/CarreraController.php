@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\carreraRequest;
 use App\Models\Carrera;
 use App\Services\CarreraService;
+use App\Http\Controllers\Controller;
 
 
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ class CarreraController extends Controller
     {
         $this->carreraService = $carreraService;
     }
+
+    /*
 
     public function index()
     {
@@ -79,6 +82,7 @@ class CarreraController extends Controller
         }
     }
 
+    */
 
      //---------------------------------------------------------------------------------------------------------
     // Swagger
@@ -104,8 +108,8 @@ class CarreraController extends Controller
      * )
      * )
      */
-    public function obtenerTodosCarreraSwagger(){
-        return $this->carreraService->obtenerTodosCarreraSwagger();
+    public function obtenerTodosCarrera(){
+        return $this->carreraService->obtenerTodosCarrera();
     }
 
     /**
@@ -139,8 +143,8 @@ class CarreraController extends Controller
      * )
      * )
      */
-    public function obtenerCarreraPorIdSwagger($id){
-        return $this->carreraService->obtenerCarreraPorIdSwagger($id);
+    public function obtenerCarreraPorId($id){
+        return $this->carreraService->obtenerCarreraPorId($id);
     }
 
     /**
@@ -165,8 +169,8 @@ class CarreraController extends Controller
      * )
      * )
      */
-    public function guardarCarreraSwagger($Request){
-        return $this->carreraService->guardarCarreraSwagger($Request);
+    public function guardarCarrera($Request){
+        return $this->carreraService->guardarCarrera($Request);
     }
 
     /**
@@ -204,8 +208,8 @@ class CarreraController extends Controller
      * )
      * )
      */
-    public function actualizarCarreraSwagger($Request, $id){
-        return $this->carreraService->actualizarCarreraSwagger($Request, $id);
+    public function actualizarCarrera($Request, $id){
+        return $this->carreraService->actualizarCarrera($Request, $id);
     }
 
     /**
@@ -238,7 +242,7 @@ class CarreraController extends Controller
      * )
      * )
      */
-    public function eliminarCarreraPorIdSwagger($id){
-        return $this->carreraService->eliminarCarreraPorIdSwagger($id);
+    public function eliminarCarreraPorId($id){
+        return $this->carreraService->eliminarCarreraPorId($id);
     }
 }

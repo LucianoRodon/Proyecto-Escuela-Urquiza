@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\horarios;
 
 use App\Mail\AssignedToSchedule;
-use App\Repositories\DisponibilidadRepository;
-use App\Mappers\DisponibilidadMapper;
-use App\Models\Aula;
-use App\Models\Comision;
-use App\Models\Disponibilidad;
-use App\Models\DocenteMateria;
-use App\Models\Horario;
-use App\Models\HorarioPrevioDocente;
+use App\Repositories\horarios\DisponibilidadRepository;
+use App\Mappers\horarios\DisponibilidadMapper;
+use App\Models\horarios\Aula;
+use App\Models\horarios\Comision;
+use App\Models\horarios\Disponibilidad;
+use App\Models\horarios\DocenteMateria;
+use App\Models\horarios\Horario;
+use App\Models\horarios\HorarioPrevioDocente;
 use Carbon\Carbon;
 use DateInterval;
 use DateTime;
@@ -27,6 +27,8 @@ class DisponibilidadService implements DisponibilidadRepository
     {
         $this->disponibilidadMapper = $disponibilidadMapper;
     }
+
+    /*
     public function obtenerTodasDisponibilidades()
     {
         
@@ -362,6 +364,8 @@ class DisponibilidadService implements DisponibilidadRepository
             return ['error' => 'Hubo un error al eliminar la disponibilidad'];
         }
     }
+
+    */
 
     //------------------------------------------------------------------------------------------------------------------
     // swagger

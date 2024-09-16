@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\AulaRequest;
-use App\Models\Aula;
-use App\Services\AulaService;
+use App\Models\horarios\Aula;
+use App\Services\horarios\AulaService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AulaController extends Controller
 {
@@ -16,7 +17,7 @@ class AulaController extends Controller
        
     }
 
-   
+   /*
     public function index(){
         $aulas = $this->aulaService->obtenerTodasAulas();
         return view('aula.index', compact('aulas'));
@@ -76,6 +77,10 @@ class AulaController extends Controller
             return redirect()->route('indexAula')->withErrors(['error' => $response['error']]);
         };
     }
+        
+    
+*/
+
 //-------------------------------------------------------------------------------------------------------------
     // Swagger Documentation
 
@@ -100,7 +105,7 @@ class AulaController extends Controller
      *      )
      * )
      */
-    public function inicio(){
+    public function index(){
         return $this->aulaService->obtenerAulas();
     }
 
@@ -150,7 +155,7 @@ class AulaController extends Controller
      *     tags={"Aula"},
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(ref="#/components/schemas/AulaData")
+     *         @OA\JsonContent(ref="#/components/schemas/Aula")
      *     ),
      *     @OA\Response(
      *     response=200,
@@ -185,7 +190,7 @@ class AulaController extends Controller
      *     ),
      *     @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/AulaData")
+     *          @OA\JsonContent(ref="#/components/schemas/Aula")
      *     ),
      *     @OA\Response(
      *          response=200,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mappers;
+namespace App\Mappers\horarios;
 
 use App\Models\Horario;
 

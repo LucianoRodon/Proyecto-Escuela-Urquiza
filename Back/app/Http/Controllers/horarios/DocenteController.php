@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\DocenteRequest;
 use App\Models\Docente;
 use Illuminate\Http\Request;
 use App\Services\DocenteService;
+use App\Http\Controllers\Controller;
+
 
 class DocenteController extends Controller
 {

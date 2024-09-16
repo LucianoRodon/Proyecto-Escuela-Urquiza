@@ -1,10 +1,12 @@
 <?php
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\MateriaRequest;
 use App\Models\Materia;
 use Illuminate\Http\Request;
 use App\Services\MateriaService;
+use App\Http\Controllers\Controller;
 
 class MateriaController extends Controller
 {

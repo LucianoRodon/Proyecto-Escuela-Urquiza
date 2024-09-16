@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Mappers;
+namespace App\Mappers\horarios;
 
-use App\Models\Aula;
+use App\Models\horarios\Aula;
 
 class AulaMapper
 {

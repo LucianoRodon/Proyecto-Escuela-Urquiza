@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\horarios;
 
 
 interface DisponibilidadRepository
 {
+    /*
     public function obtenerTodasDisponibilidades();
     public function obtenerDisponibilidadPorId($id);
     public function horaPrevia($id_h_p_d);
@@ -13,12 +14,13 @@ interface DisponibilidadRepository
     public function actualizarDisponibilidad($params);
     public function  eliminarDisponibilidadPorId($id);
 
+    */
 
     //------------------------------------------------------------------------------------------------------------------
     // swagger
-    public function obtenerTodasDisponibilidadesswagger();
-    public function obtenerDisponibilidadPorIdswagger($id);
-    public function guardarDisponibilidadswagger($params);
-    public function actualizarDisponibilidadswagger($params, $id);
-    public function  eliminarDisponibilidadPorIdswagger($id);
+    public function obtenerTodasDisponibilidades();
+    public function obtenerDisponibilidadPorId($id);
+    public function guardarDisponibilidad($params);
+    public function actualizarDisponibilidad($params, $id);
+    public function  eliminarDisponibilidadPorId($id);
 }

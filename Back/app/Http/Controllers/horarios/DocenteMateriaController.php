@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\horarios;
 
 use App\Http\Requests\DocenteMateriaRequest;
 use App\Mappers\DocenteMapper;
@@ -13,6 +13,7 @@ use App\Models\HorarioPrevioDocente;
 use App\Models\Materia;
 use App\Services\DocenteMateriaService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DocenteMateriaController extends Controller
 {

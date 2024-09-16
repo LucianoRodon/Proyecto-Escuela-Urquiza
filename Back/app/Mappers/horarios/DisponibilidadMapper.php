@@ -1,9 +1,9 @@
 <?php
 
 
-namespace App\Mappers;
+namespace App\Mappers\horarios;
 
-use App\Models\Disponibilidad;
+use App\Models\horarios\Disponibilidad;
 
 class DisponibilidadMapper
 {
