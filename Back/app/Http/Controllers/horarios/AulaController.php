@@ -190,7 +190,7 @@ class AulaController extends Controller
      *     ),
      *     @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/Aula")
+     *          @OA\JsonContent(ref="#/components/schemas/AulaData")
      *     ),
      *     @OA\Response(
      *          response=200,
