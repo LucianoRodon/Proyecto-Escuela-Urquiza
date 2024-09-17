@@ -125,21 +125,32 @@ class DisponibilidadService implements DisponibilidadRepository
         $distribucion = [];
         $diasSemana = ['lunes','martes','miercoles','jueves','viernes'];
         $siguienteDia = false;
+
+
         foreach ($diasSemana as $dia) {
 
+        // SI EL DIA DE LA SEMANA NO ES IGUAL A EL DIA O DIAS QUE EL DOCENTE TRABAJA EN  OTRA EN OTRA INSTITUCION
             if ($dia!==$diaInstituto) {
 
+                // RECORRE LOS MODULOS 
                 foreach ($modulosPermitidos as $modulo) {
+
+                    
                     $modulo_inicio = $modulo; 
                     if ($modulo_inicio >= 7) {
-                        continue; // Saltar este módulo y pasar al siguiente
+                        continue; // Saltar este módulo y pasar al siguiente dia
                     }
+
+                    // cantidad de modulos semandales que tiene el docente
                     switch ($modulos_semanales) {
                         case 1:
                         case 2:
                         case 3:
+                            
                             $modulo_fin = min($modulo_inicio + $modulos_semanales, 7);
+                            
                             $disponible = $this->verificarModulosDia($dia, $modulo_inicio, $modulo_fin, $id_dm, $id_comision, $id_aula);
+                            // si no hay superposicion de horarios se almacena el horario para el docente
                             if ($disponible) {
                                 $distribucion[] = [
                                     'dia' => $dia,
@@ -153,12 +164,17 @@ class DisponibilidadService implements DisponibilidadRepository
                         case 4:
                         case 5:
                         case 6:
+                            // si ya se asignaron horarios para el docente y se avanzo al otro dia aplica la condicion
                             if ($siguienteDia && $modulos_semanales == 5) {
+                            
                                 $modulos_semanales = 4;
                             }
+                            
                             $mitadModulos = ($modulos_semanales % 2 == 0) ? $modulos_semanales / 2 : intval(ceil($modulos_semanales / 2));
+                            
                             $modulo_fin = min($modulo_inicio + $mitadModulos,7);
                             $disponible = $this->verificarModulosDia($dia, $modulo_inicio, $modulo_fin, $id_dm, $id_comision, $id_aula);
+                            
                             if ($disponible) {
                                 if ($siguienteDia) {
                                     $distribucion[] = [
@@ -182,8 +198,10 @@ class DisponibilidadService implements DisponibilidadRepository
                             break;
                     }
                 }
+            // si el dia de la semana es igual a el dia de la semana que el docente trabaja en otra institucion
             }else{
 
+                //modulo inicio toma el valor de modulo previo, es decir, desde que modulo el docente puede empezar a dar clases. $moduloPrevio se obtiene en la funcion horaPrevia()
                 $modulo_inicio=$moduloPrevio;
                 
                 switch ($modulos_semanales) {
