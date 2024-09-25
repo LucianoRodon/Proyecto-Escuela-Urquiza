@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Home from '../Components/Home';
-import Carreras from '../Views/LandingView/Carreras';
-import Inscripciones from '../Views/LandingView/Inscripciones';
-import SuperAdmin from '../Views/SuperAdminView/SuperAdmin';
-import AlumnoProfile from '../Views/AlumnoView/Profile';
-import InscripcionesAlumno from '../Views/AlumnoView/InscripcionesAlumno';
-import Materias from '../Views/AlumnoView/Materias';
-import Error404 from '../Views/Error404';
-import LandingView from '../Views/LandingView';
-import AlumnoView from '../Views/AlumnoView';
-import SuperAdminView from '../Views/SuperAdminView';
-import SignUp from '../Views/LandingView/SignUp';
-import RecoverPassword from '../Views/LandingView/Login/RecoverPassword';
-import ResetPassword from '../Views/LandingView/Login/ResetPassword';
-import Login from '../Views/LandingView/Login';
+// import Home from '../Components/Home';
+// import Carreras from '../Views/LandingView/Carreras';
+// import Inscripciones from '../Views/LandingView/Inscripciones';
+// import SuperAdmin from '../Views/SuperAdminView/SuperAdmin';
+// import AlumnoProfile from '../Views/AlumnoView/Profile';
+// import InscripcionesAlumno from '../Views/AlumnoView/InscripcionesAlumno';
+// import Materias from '../Views/AlumnoView/Materias';
+// import Error404 from '../Views/Error404';
+// import LandingView from '../Views/LandingView';
+// import AlumnoView from '../Views/AlumnoView';
+// import SuperAdminView from '../Views/SuperAdminView';
+// import SignUp from '../Views/LandingView/SignUp';
+// import RecoverPassword from '../Views/LandingView/Login/RecoverPassword';
+// import ResetPassword from '../Views/LandingView/Login/ResetPassword';
+// import Login from '../Views/LandingView/Login';
+
+import Base from '../horarios/Screens/layouts/base';
+import Home from '../horarios/Screens/home';
+import Aulas from '../horarios/Screens/aulas';
 
 const RoutesLanding = () => {
   const { pathname } = useLocation();
@@ -25,7 +29,7 @@ const RoutesLanding = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingView />}>
+      {/* <Route path="/" element={<LandingView />}>
         <Route index element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
@@ -47,9 +51,14 @@ const RoutesLanding = () => {
         <Route path="administracion" element={<SuperAdmin />} />
         <Route path="carreras" element={<Carreras />} />
         <Route path="inscripciones" element={<Inscripciones />} />
-      </Route>
+      </Route> */}
 
-      <Route path="*" element={<Error404 />} />
+      {/* <Route path="*" element={<Error404 />} /> */}
+      {/*  */}
+      <Route path="/horarios" element={<Base hideMenu={false} />}>
+        <Route index element={<Home />} />
+        <Route path="aulas" element={<Aulas />} />
+      </Route>
     </Routes>
   );
 };
