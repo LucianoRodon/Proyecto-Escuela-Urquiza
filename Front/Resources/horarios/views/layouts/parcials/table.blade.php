@@ -193,7 +193,6 @@
             <th>Aula</th>
             <th>Materia</th>
             <th>comision</th>
-            <!-- Agrega más encabezados según tus necesidades -->
         </tr>
     </thead>
     <tbody>

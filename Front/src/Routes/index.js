@@ -30,6 +30,7 @@ import ActualizarComision from '../horarios/Screens/comision/actualizarComision'
 import Asignaciones from '../horarios/Screens/asignacion';
 import CrearHorarioPrevio from '../horarios/Screens/horarioPrevioDocente/crearHorarioPrevio';
 import ActualizarHorarioPrevio from '../horarios/Screens/horarioPrevioDocente/actualizarHorarioPrevioDocente';
+import Horario from '../horarios/Screens/horario';
 
 // ... rest of the code
 const RoutesLanding = () => {
@@ -90,7 +91,8 @@ const RoutesLanding = () => {
           path="actualizar-horario-previo/:hpdId/:dmId"
           element={<ActualizarHorarioPrevio />}
         />
-        {/*  */}
+        {/* horarios */}
+        <Route path="mostrar" element={<Horario />} />
       </Route>
     </Routes>
   );
