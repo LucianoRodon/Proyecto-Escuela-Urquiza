@@ -30,11 +30,16 @@ import ActualizarComision from '../horarios/Screens/comision/actualizarComision'
 import Asignaciones from '../horarios/Screens/asignacion';
 import CrearHorarioPrevio from '../horarios/Screens/horarioPrevioDocente/crearHorarioPrevio';
 import ActualizarHorarioPrevio from '../horarios/Screens/horarioPrevioDocente/actualizarHorarioPrevioDocente';
-import Horario from '../horarios/Screens/horario';
-
-// ... rest of the code
+import Horario from '../horarios/Screens/horario/index';
+import HorarioBedelia from '../horarios/Screens/horario/indexBedelia';
+import HorarioDocente from '../horarios/Screens/horario/indexDocente';
+import Carreras from '../horarios/Screens/carrera';
+import CrearCarrera from '../horarios/Screens/carrera/crearCarrera';
+import ActualizarCarrera from '../horarios/Screens/carrera/actualizarCarrera';
+import { getRoutes } from '../horarios/Routes';
 const RoutesLanding = () => {
   const { pathname } = useLocation();
+  const routes = getRoutes(); // Llamada a la función para obtener las rutas
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -69,30 +74,39 @@ const RoutesLanding = () => {
       {/* <Route path="*" element={<Error404 />} /> */}
 
       {/*horarios  */}
-      <Route path="/horarios" element={<Base hideMenu={false} />}>
+      <Route path={routes.base} element={<Base hideMenu={false} />}>
         <Route index element={<Home />} />
-        {/* aulas */}
-        <Route path="aulas" element={<Aulas />} />
-        <Route path="aulas/crear" element={<CrearAula />} />
-        <Route path="aulas/:aulaId/actualizar" element={<ActualizarAula />} />
-        {/* materias */}
-        <Route path="materias" element={<Materias />} />
-        <Route path="materias/crear" element={<CrearMateria />} />
-        <Route path="materias/:materiaId/actualizar" element={<ActualizarMateria />} />
-        {/* comisiones */}
-        <Route path="comisiones" element={<Comisiones />} />
-        <Route path="comisiones/crear" element={<CrearComision />} />
-        <Route path="comisiones/:comisionId/actualizar" element={<ActualizarComision />} />
-        {/* asignaciones */}
-        <Route path="asignaciones" element={<Asignaciones />} />
-        {/* horario previo docente */}
-        <Route path="crear-horario-previo/:dni" element={<CrearHorarioPrevio />} />
+        {/* Aulas */}
+        <Route path={routes.aulas.main} element={<Aulas />} />
+        <Route path={routes.aulas.crear} element={<CrearAula />} />
+        <Route path={routes.aulas.actualizar(':aulaId')} element={<ActualizarAula />} />
+        {/* Materias */}
+        <Route path={routes.materias.main} element={<Materias />} />
+        <Route path={routes.materias.crear} element={<CrearMateria />} />
+        <Route path={routes.materias.actualizar(':materiaId')} element={<ActualizarMateria />} />
+        {/* Carreras */}
+        <Route path={routes.carreras.main} element={<Carreras />} />
+        <Route path={routes.carreras.crear} element={<CrearCarrera />} />
+        <Route path={routes.carreras.actualizar(':carreraId')} element={<ActualizarCarrera />} />
+        {/* Comisiones */}
+        <Route path={routes.comisiones.main} element={<Comisiones />} />
+        <Route path={routes.comisiones.crear} element={<CrearComision />} />
         <Route
-          path="actualizar-horario-previo/:hpdId/:dmId"
+          path={routes.comisiones.actualizar(':comisionId')}
+          element={<ActualizarComision />}
+        />
+        {/* Asignaciones */}
+        <Route path={routes.asignaciones} element={<Asignaciones />} />
+        {/* Horario previo docente */}
+        <Route path={routes.crearHorarioPrevio(':dni')} element={<CrearHorarioPrevio />} />
+        <Route
+          path={routes.actualizarHorarioPrevio(':hpdId', ':dmId')}
           element={<ActualizarHorarioPrevio />}
         />
-        {/* horarios */}
-        <Route path="mostrar" element={<Horario />} />
+        {/* Planilla */}
+        <Route path={routes.planilla.alumnos} element={<Horario />} />
+        <Route path={routes.planilla.bedelia} element={<HorarioBedelia />} />
+        <Route path={routes.planilla.docente} element={<HorarioDocente />} />
       </Route>
     </Routes>
   );

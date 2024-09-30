@@ -2,7 +2,7 @@ import React from 'react';
 import Table from '../layouts/parcials/table'; // Suponiendo que el componente de la tabla se llama Table
 import FormularioHorarioDocente from '../layouts/parcials/formularioHorarioDocente';
 
-const Horario = () => {
+const HorarioDocente = () => {
   const hideMenu = true; // Simulación de variable de PHP
 
   return (
@@ -22,4 +22,4 @@ const Horario = () => {
   );
 };
 
-export default Horario;
+export default HorarioDocente;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from '../layouts/parcials/table'; // Suponiendo que el componente de la tabla se llama Table
 
-const Horario = () => {
+const HorarioBedelia = () => {
   return (
     <div className="container py-3">
       <div className="row">
@@ -11,4 +11,4 @@ const Horario = () => {
   );
 };
 
-export default Horario;
+export default HorarioBedelia;

@@ -34,7 +34,7 @@ const CrearHorarioPrevio = ({ dni }) => {
         setErrors(errorData.errors || {});
       } else {
         // Redirigir o realizar alguna acción después del éxito
-        navigate('/ruta-deseada'); // Cambia la ruta según sea necesario
+        navigate('/ruta-deseada');
       }
     } catch (error) {
       console.error('Error al crear el docente:', error);

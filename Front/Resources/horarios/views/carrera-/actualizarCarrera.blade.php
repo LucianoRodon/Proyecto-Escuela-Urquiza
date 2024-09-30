@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div class="container" style="width: 500px;"> <!-- Cambiado a container-fluid -->
+<div class="container" style="width: 500px;"> 
     
     @if ($errors->any())
         <div class="alert alert-danger">
