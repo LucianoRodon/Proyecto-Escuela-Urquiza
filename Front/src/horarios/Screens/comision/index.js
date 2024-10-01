@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const Comisiones = () => {
+  const navigate = useNavigate();
+  const { routes } = useOutletContext();
+
   const [comisiones, setComisiones] = useState([]);
   const [errors, setErrors] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
-  const navigate = useNavigate();
 
   // Simular obtener las comisiones (puedes reemplazarlo con una llamada a la API)
   useEffect(() => {
@@ -53,7 +55,8 @@ const Comisiones = () => {
           <button
             type="button"
             className="btn btn-primary me-2"
-            onClick={() => navigate('/horarios/comisiones/crear')}
+            onClick={() => navigate(`${routes.base}/${routes.comisiones.crear}`)}
+            style={{ display: 'inline-block', marginRight: '10px' }}
           >
             Crear
           </button>
@@ -80,10 +83,12 @@ const Comisiones = () => {
             <div className="botones">
               <button
                 type="button"
-                className="btn btn-secondary m-2"
-                onClick={() => navigate(`/horarios/comisiones/actualizar/${comision.id_comision}`)}
+                className="btn btn-primary me-2"
+                // id parentesis
+                onClick={() => navigate(`${routes.base}/${routes.comisiones.actualizar()}`)}
+                style={{ display: 'inline-block', marginRight: '10px' }}
               >
-                Actualizar
+                Crear
               </button>
               <button
                 type="button"

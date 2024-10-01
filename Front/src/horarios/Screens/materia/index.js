@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const Materias = () => {
+  const navigate = useNavigate();
+  const { routes } = useOutletContext();
+
   const [materias, setMaterias] = useState([]);
   const [errors, setErrors] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
@@ -48,11 +51,14 @@ const Materias = () => {
     <div className="container py-3">
       <div className="row align-items-center justify-content-center">
         <div className="col-6 text-center">
-          <Link to="/materias/crear" style={{ display: 'inline-block', marginRight: '10px' }}>
-            <button type="submit" className="btn btn-primary me-2">
-              Crear
-            </button>
-          </Link>
+          <button
+            type="button"
+            className="btn btn-primary me-2"
+            onClick={() => navigate(`${routes.base}/${routes.materias.crear}`)}
+            style={{ display: 'inline-block', marginRight: '10px' }}
+          >
+            Crear
+          </button>
         </div>
       </div>
 
@@ -72,14 +78,15 @@ const Materias = () => {
             <p>Nombre: {materia.nombre}</p>
             <p>Módulos semanales: {materia.modulos_semanales}</p>
             <div className="botones">
-              <Link
-                to={`/materias/${materia.id_materia}/editar`}
+              <button
+                type="button"
+                className="btn btn-primary me-2"
+                // id en parentesis
+                onClick={() => navigate(`${routes.base}/${routes.materias.actualizar()}`)}
                 style={{ display: 'inline-block', marginRight: '10px' }}
               >
-                <button type="button" className="btn btn-secondary m-2">
-                  Actualizar
-                </button>
-              </Link>
+                Actualizar
+              </button>
 
               <button
                 type="button"

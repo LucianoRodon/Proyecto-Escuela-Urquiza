@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'; // React Router para manejo de rutas
-import { Link } from 'react-router-dom'; // React Router para manejo de rutas
-
+import { useNavigate, useOutletContext } from 'react-router-dom';
 const Aulas = () => {
+  const navigate = useNavigate();
+  const { routes } = useOutletContext();
+
   const [aulas, setAulas] = useState([]);
   const [errors, setErrors] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
@@ -43,11 +44,14 @@ const Aulas = () => {
     <div className="container py-3">
       <div className="row align-items-center justify-content-center">
         <div className="col-6 text-center">
-          <Link to="/aulas/nuevo" style={{ display: 'inline-block', marginRight: '10px' }}>
-            <button type="button" className="btn btn-primary me-2">
-              Crear
-            </button>
-          </Link>
+          <button
+            type="button"
+            className="btn btn-primary me-2"
+            onClick={() => navigate(`${routes.base}/${routes.aulas.crear}`)}
+            style={{ display: 'inline-block', marginRight: '10px' }}
+          >
+            Crear
+          </button>
         </div>
       </div>
 
@@ -66,14 +70,15 @@ const Aulas = () => {
             <p>Nombre: {aula.nombre}</p>
             <p>Tipo de Aula: {aula.tipo_aula}</p>
             <div className="botones">
-              <Link
-                to={`/aulas/actualizar/${aula.id_aula}`}
+              <button
+                type="button"
+                className="btn btn-primary me-2"
+                // id parentesis
+                onClick={() => navigate(`${routes.base}/${routes.aulas.actualizar}`)}
                 style={{ display: 'inline-block', marginRight: '10px' }}
               >
-                <button type="button" className="btn btn-secondary m-2">
-                  Actualizar
-                </button>
-              </Link>
+                Crear
+              </button>
               <button
                 type="button"
                 className="btn btn-danger"

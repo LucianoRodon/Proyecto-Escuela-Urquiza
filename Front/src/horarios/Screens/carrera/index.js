@@ -4,7 +4,8 @@ import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const Carreras = () => {
   const navigate = useNavigate();
-  const { routes } = useOutletContext(); // Obtenemos las rutas desde el contexto
+  const { routes } = useOutletContext();
+
   const [carreras, setCarreras] = useState([]);
   const [messages, setMessages] = useState({ success: '', errors: [] });
 
@@ -66,14 +67,15 @@ const Carreras = () => {
           >
             <p>Carrera: {carrera.nombre}</p>
             <div className="botones">
-              <a
-                href={`/actualizarCarrera/${carrera.id_carrera}`}
+              <button
+                type="button"
+                className="btn btn-primary me-2"
+                // poner el id dentro de los parentesis
+                onClick={() => navigate(`${routes.base}/${routes.carreras.actuaizar()}`)}
                 style={{ display: 'inline-block', marginRight: '10px' }}
               >
-                <button type="button" className="btn btn-secondary m-2">
-                  Actualizar
-                </button>
-              </a>
+                Actualizar
+              </button>
 
               <button
                 type="button"
