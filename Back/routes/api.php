@@ -45,5 +45,16 @@ Route::post('/aulas', [AulaController::class, 'store']);
 Route::put('/aulas/actualizar/{id}', [AulaController::class, 'update']);
 Route::delete('/aulas/eliminar/{id}', [AulaController::class, 'destroy']);
 
+// Grados
+Route::get('/grados', [GradoController::class, 'index']);
+Route::get('/grados/{id}', [GradoController::class, 'show']);
+Route::post('/grados', [GradoController::class, 'store']);
+Route::put('/grados/actualizar/{id}', [GradoController::class, 'update']);
+Route::delete('/grados/eliminar/{id}', [GradoController::class, 'destroy']);
 
-
+// GradosUc
+Route::get('/grado-uc', [GradoUcController::class, 'index']); 
+Route::get('/grado-uc/{id}', [GradoUcController::class, 'show']); 
+Route::post('/grado-uc', [GradoUcController::class, 'store']); 
+Route::put('/grado-uc/actualizar/{id}', [GradoUcController::class, 'update']); 
+Route::delete('/grado-uc/eliminar/{id}', [GradoUcController::class, 'destroy']); 

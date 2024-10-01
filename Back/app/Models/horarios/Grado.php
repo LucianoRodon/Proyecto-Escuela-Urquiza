@@ -17,16 +17,19 @@ class Grado extends Model
     protected $table = 'grado';
     protected $primaryKey = 'Id_Grado';
 
-
+    /*
     // Un grado tiene uno o muchos inscripciones
     public function inscripciones():HasMany{
         return $this->hasMany(Inscripcion::class, 'Id_Grado', 'Id_Grado');
     }
-
+    */
+      
+    /*
     // Un grado tiene uno o muchos inscripcion_aspirante
     public function inscripcion_aspirante():HasMany{
         return $this->hasMany(inscripcion_aspirante::class, 'Id_Grado', 'Id_Grado');
     }
+    */
 
     // Un grado tiene uno o muchos disponibilidad
     public function disponibilidad():HasMany{
@@ -45,7 +48,7 @@ class Grado extends Model
 
     // Un grado tiene uno o muchos grado_uc
     public function grado_uc():HasMany{
-        return $this->hasMany(grado_uc::class, 'Id_Grado', 'Id_Grado');
+        return $this->hasMany(gradoUC::class, 'Id_Grado', 'Id_Grado');
     }
 
 }
