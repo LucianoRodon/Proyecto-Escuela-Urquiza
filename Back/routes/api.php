@@ -23,13 +23,13 @@ Route::post('/password/forgot', [AuthController::class, 'forgotPassword']);
 Route::post('/password/reset', [AuthController::class, 'resetPassword']);
 Route::get('/verify-token/{token}', [AuthController::class, 'verifyResetToken']);
 
-Route::get('auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
+// Route::get('auth/google', function () {
+//     return Socialite::driver('google')->redirect();
+// });
 
-Route::get('auth/google/callback', function () {
-    $user = Socialite::driver('google')->user();
-});
+// Route::get('auth/google/callback', function () {
+//     $user = Socialite::driver('google')->user();
+// });
 
 Route::post('/auth/google/callback', [AuthController::class, 'googleCallback']);
 
@@ -39,22 +39,22 @@ Route::post('/auth/google/callback', [AuthController::class, 'googleCallback']);
 // Swagger
 
 // Aulas
-Route::get('/aulas', [AulaController::class, 'index']);
-Route::get('/aulas/{id}', [AulaController::class, 'show']);
-Route::post('/aulas', [AulaController::class, 'store']);
-Route::put('/aulas/actualizar/{id}', [AulaController::class, 'update']);
-Route::delete('/aulas/eliminar/{id}', [AulaController::class, 'destroy']);
+Route::get('/horarios/aulas', [AulaController::class, 'index']);
+Route::get('/horarios/aulas/{id}', [AulaController::class, 'show']);
+Route::post('/horarios/aulas', [AulaController::class, 'store']);
+Route::put('/horarios/aulas/actualizar/{id}', [AulaController::class, 'update']);
+Route::delete('/horarios/aulas/eliminar/{id}', [AulaController::class, 'destroy']);
 
 // Grados
-Route::get('/grados', [GradoController::class, 'index']);
-Route::get('/grados/{id}', [GradoController::class, 'show']);
-Route::post('/grados', [GradoController::class, 'store']);
-Route::put('/grados/actualizar/{id}', [GradoController::class, 'update']);
-Route::delete('/grados/eliminar/{id}', [GradoController::class, 'destroy']);
+Route::get('/horarios/grados', [GradoController::class, 'index']);
+Route::get('/horarios/grados/{id}', [GradoController::class, 'show']);
+Route::post('/horarios/grados', [GradoController::class, 'store']);
+Route::put('/horarios/grados/actualizar/{id}', [GradoController::class, 'update']);
+Route::delete('/horarios/grados/eliminar/{id}', [GradoController::class, 'destroy']);
 
 // GradosUc
-Route::get('/grado-uc', [GradoUcController::class, 'index']); 
-Route::get('/grado-uc/{id}', [GradoUcController::class, 'show']); 
-Route::post('/grado-uc', [GradoUcController::class, 'store']); 
-Route::put('/grado-uc/actualizar/{id}', [GradoUcController::class, 'update']); 
-Route::delete('/grado-uc/eliminar/{id}', [GradoUcController::class, 'destroy']); 
+Route::get('/horarios/grado-uc', [GradoUcController::class, 'index']); 
+Route::get('/horarios/grado-uc/{id}', [GradoUcController::class, 'show']); 
+Route::post('/horarios/grado-uc', [GradoUcController::class, 'store']); 
+Route::put('/horarios/grado-uc/actualizar/{id}', [GradoUcController::class, 'update']); 
+Route::delete('/horarios/grado-uc/eliminar/{id}', [GradoUcController::class, 'destroy']); 
